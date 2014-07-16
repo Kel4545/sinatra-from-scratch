@@ -15,11 +15,11 @@ class App < Sinatra::Application
     erb :home
   end
 
-post '/register' do
-  username = params[:username]
-  email = params[:email]
-  @database_connection.sql("INSERT INTO users (username, email) values ('#{username}','#{email}')")
-  flash[:notice] = "Thank you for registering"
-  redirect '/'
+  post '/register' do
+    username = params[:username]
+    email = params[:email]
+    @database_connection.sql("INSERT INTO users (username, email) values ('#{username}','#{email}')")
+    flash[:notice] = "Thank you for registering"
+    redirect '/'
+  end
 end
- end
